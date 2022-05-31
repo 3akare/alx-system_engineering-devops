@@ -1,3 +1,2 @@
 #!/bin/bash
 export BEST=School
-echo $BEST
