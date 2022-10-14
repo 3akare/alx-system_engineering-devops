@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#fizzbuzz
+
+counter=1
+
+while (( counter <= 100 ))
+do
+    rem=$((counter%3))
+    if [ $rem == "0" ]
+    then
+        echo "$counter"
+    fi
+    ((counter++))
+done
