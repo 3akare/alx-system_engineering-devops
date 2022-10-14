@@ -3,5 +3,5 @@
 
 for _ in {1..10}
 do
-	echo "Best School"
+	echo "Best School";
 done
