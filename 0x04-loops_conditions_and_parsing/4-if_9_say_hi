@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#displays "Best School" 10 times with an while loop and prints 'hi' after the 9th iteration
+
+counter=0
+
+while (( counter < 10))
+do
+  if (( counter == 9 ))
+  then
+    echo "hi"
+  fi
+  echo "Best School"
+  ((counter++))
+done
