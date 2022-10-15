@@ -4,7 +4,7 @@
 minute=1
 hour=0
 
-while (( minute < 60))
+while (( minute < 60 ))
 do
     echo $minute
     ((minute++))
