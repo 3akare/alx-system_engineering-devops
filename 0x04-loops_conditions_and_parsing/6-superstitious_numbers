@@ -5,7 +5,7 @@
 #displays 17 and then bad luck from Italy for the 17th loop iteration
 
 counter=1
-while (( counter < 20))
+while (( counter < 21))
 do
     case $counter in
     5)
