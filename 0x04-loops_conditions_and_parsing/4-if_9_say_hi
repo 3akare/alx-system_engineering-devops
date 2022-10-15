@@ -7,7 +7,7 @@ while (( counter < 10))
 do
   if (( counter == 9 ))
   then
-    echo "hi"
+    echo "Hi"
   fi
   echo "Best School"
   ((counter++))
