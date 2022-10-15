@@ -4,18 +4,14 @@
 minute=1
 hour=0
 
-while (( minute < 60 ))
+while [ $hour -le 12 ]
 do
-    echo $minute
-    ((minute++))
-    if (( minute == 60 ))
-    then
-        echo "Hour: $hour"
-        ((hour++))
-        minute=1
-    fi
-    if (( hour == 13 ))
-    then
-        break
-    fi
+	echo "Hour: $hour"
+	minute=1
+	while [ $minute -le 59 ]
+	do
+		echo "$minute"
+		(( minute++ ))
+	done
+	(( hour++))
 done
