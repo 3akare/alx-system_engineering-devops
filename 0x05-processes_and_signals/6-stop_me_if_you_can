@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-# stops '4-to_infinoty_and_beyond'
+# stops '4-to_infinity_and_beyond'
 
 pkill "4-to_infinity_and_beyond" -f
