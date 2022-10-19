@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # provides the status of a file 'school'
 
-if [ -f "school" ]
+if [ -e "school" ]
 then
     echo "school file exists"
     if [ -s "school" ]
@@ -10,8 +10,11 @@ then
     else
         echo "school file is empty"
     fi
-    echo "school is a regular file"
-    
+
+    if [ -f "school" ]
+    then
+        echo "school is a regular file"
+    fi    
 else
     echo "school file does not exist"
 fi
