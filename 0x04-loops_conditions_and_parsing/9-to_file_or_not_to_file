@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# provides the status of a file 'school'
 
 if [ -f "school" ]
 then
