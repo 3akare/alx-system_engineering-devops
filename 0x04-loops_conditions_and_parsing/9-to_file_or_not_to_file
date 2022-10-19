@@ -8,7 +8,7 @@ then
     then
         echo "school file not is empty"
     else
-        echo "school is empty"
+        echo "school file is empty"
     fi
     echo "school is a regular file"
     
