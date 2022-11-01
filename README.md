@@ -10,4 +10,6 @@ track at alx/Holberton School
 - [0x04-Loops, Conditionals and Parsing](./0x04-loops_conditions_and_parsing)
 - [0x05-processes, and Signals](./0x05-processes_and_signals)
 - [0x06 Regular Expressions](./0x06-regular_expressions)
+- [0x07 Networking Basics](./0x07-networking_basics)
+- [0x08 Networking Basics 2](./0x08-networking_basics_2)
 - [Command Line for the win](./command_line_for_the_win)
