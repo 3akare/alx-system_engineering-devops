@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+#listens port 98 on localhost
+
+nc -l localhost 89
