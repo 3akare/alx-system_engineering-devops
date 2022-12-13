@@ -1,8 +1,8 @@
-
-file { 'test_puppet':
-  ensure => present,
-}->
-file_line { 'Append a line to /tmp/eureka.txt':
-  path => 'test_puppet',  
-  line => 'Hello World',
+file {'~/.ssh/school':
+ensure                    => present,
+PasswordAuthentication    => 'no',
+IndetityFile              => 'yes',
+HashKnownHosts            => 'yes',
+GSSAPIAUthentication      => 'yes',
+GSSAPIDelegateCredentials => 'no',
 }
