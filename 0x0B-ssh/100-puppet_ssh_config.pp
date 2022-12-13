@@ -6,6 +6,6 @@ line => ' IdentityFile ~/.ssh/school'
 }
 
 file_line { 'No Authenticate with password':
-  path => '/c  line => ' GSSAPIAuthentication yes'
+  path => '/etc/ssh/ssh_config'
   line => ' HashKnownHosts yes'
 }
