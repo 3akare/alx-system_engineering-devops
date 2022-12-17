@@ -10,7 +10,7 @@ printf %s "server {
        index index.html;
 
        location /redirect_me {
-            return https://www.youtube.com;
+            return 301 https://www.youtube.com;
        }
 }" > default 
 

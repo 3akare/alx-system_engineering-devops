@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#Configure your Nginx server so that /redirect_me is redirecting to another page.
+
+touch 404.html
+echo "Ceci n'est pas une page" > 404.html
+
+touch default
+printf %s "server {
+        listen 80;
+        listen [::]:80;
+
+        root /var/www/school;
+        index index.html;
+
+        location /redirect_me {
+            return https://www.youtube.com;
+        }
+
+        error_page 404 /404.html;    
+        location /404 {
+            root /var/www/school;
+            index 404.html;
+        }
+}" > default 
+
+sudo mv default /etc/nginx/sites-available/
+sudo service nginx restart
