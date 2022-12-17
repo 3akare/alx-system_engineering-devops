@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
-#Configure your Nginx server so that /redirect_me is redirecting to another page.
+# Configure your Nginx server so that /redirect_me is redirecting to another page.
+# Handle 404 errors
 
 # Update and Install nginx
 sudo apt -y update
 sudo apt -y install nginx
 
-# Create a Directory to store static content
+# Remove and replace /var/www to store static content
+# Created /var/www/school/errors to store 404 error message
+
 rm -rf school
 mkdir school
 mkdir school/errors
@@ -19,6 +22,9 @@ sudo rm -rf /var/www/school
 sudo mv school /var/www/
 
 # Change the default configuration of nginx
+# Add redirection for localhost/redirect_me
+# Return  404.html in case of a 404 error (page not found)
+
 touch default
 printf %s "server {
         listen 80;

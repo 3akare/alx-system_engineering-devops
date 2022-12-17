@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 #Configure your Nginx server so that /redirect_me is redirecting to another page.
 
-# Update and Install nginx
+# Update apt and Install nginx
 sudo apt -y update
 sudo apt -y install nginx
 
-# Create a Directory to store static content
+# Remove and replace /var/www to store static content
 rm -rf school
 mkdir school
 touch school/index.html
@@ -14,6 +14,7 @@ sudo rm -rf /var/www/school
 sudo mv school /var/www/
 
 # Change the default configuration of nginx
+# Add redirection for localhost/redirect_me
 touch default
 printf %s "server {
         listen 80;

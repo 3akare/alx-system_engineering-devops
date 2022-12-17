@@ -4,11 +4,12 @@
 # curl localhost should result "Hello World!"
 
 
-# Update and Install nginx
+# Update apt and Install nginx
 sudo apt -y update
 sudo apt -y install nginx
 
-# Create a Directory to store static content
+# Remove and replace /var/www to store static content
+
 rm -rf school
 mkdir school
 touch school/index.html

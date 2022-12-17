@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
-#Transfer a file to my server
+# Transfer a file from local to my ubuntu server
+
+# {$1} - IP Address of Ubuntu Server (52.23.172.2)
+# {$2} - Path to ssh key
+# {$3} - Username (ubuntu)
+# {$4} - Path to file file to be sent
+# Example - ./0* 0-transfer_file 52.23.179.2 ubuntu ~/.ssh...
 
 if [ $# != 4 ]; then
 	echo "Usage: 0-transfer_file PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
