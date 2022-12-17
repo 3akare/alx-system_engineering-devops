@@ -1,20 +1,25 @@
 #!/usr/bin/env bash
-# configure
-apt-get update
-apt-get install -y nginx
+#Configure your Nginx server so that /redirect_me is redirecting to another page.
 
+# Update and Install nginx
+sudo apt -y update
+sudo apt -y install nginx
+
+# Create a Directory to store static content
 rm -rf school
 mkdir school
+mkdir school/errors
+touch 404.html
+echo "Ceci n'est pas une page" > school/errors/404.html
+
 touch school/index.html
 echo "Hello World!" > school/index.html
 
 sudo rm -rf /var/www/school
 sudo mv school /var/www/
 
-mkdir /etc/nginx/html
-touch /etc/nginx/html/404.html
-echo "Ceci n'est pas une page" > /etc/nginx/html/404.html
-
+# Change the default configuration of nginx
+touch default
 printf %s "server {
         listen 80;
         listen [::]:80;
@@ -27,11 +32,17 @@ printf %s "server {
         }
 
         error_page 404 /404.html;
-        location /404 {
-        root /etc/nginx/html;
-        internal;
-    }
-}" > /etc/nginx/sites-available/default
+        location = /404.html {
+            root /var/www/school/errors/;
+        }
+}
+" > default
+
+# Remove and replace existing configurations
+sudo rm -rf /etc/nginx/sites-available/default
+sudo rm -rf /etc/nginx/sites-enabled/default
+sudo mv default /etc/nginx/sites-available/
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 # Restart nginx
-service nginx restart
+sudo service nginx restart
