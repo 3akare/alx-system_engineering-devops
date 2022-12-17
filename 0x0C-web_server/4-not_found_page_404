@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-
+# configure
 apt-get update
 apt-get install -y nginx
 
