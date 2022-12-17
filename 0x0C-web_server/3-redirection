@@ -1,38 +1,22 @@
 #!/usr/bin/env bash
-#Configure your Nginx server so that /redirect_me is redirecting to another page.
+# Configures an Nginx server so that /redirect_me redirects to another page.
+# The redirection is configured as a "301 Moved Permanently"
 
-# Update and Install nginx
-sudo apt -y update
-sudo apt -y install nginx
+apt-get update
+apt-get install -y nginx
 
-# Create a Directory to store static content
-rm -rf school
-mkdir school
-touch school/index.html
-echo "Hello World!" > school/index.html
-sudo rm -rf /var/www/school
-sudo mv school /var/www/
-
-# Change the default configuration of nginx
-touch default
+mkdir /etc/nginx/html
+touch /etc/nginx/html/index.html
+echo "Hello World" > /etc/nginx/html/index.html
 printf %s "server {
-        listen 80;
-        listen [::]:80;
+    listen 80;
+    listen [::]:80 default_server;
+    root   /etc/nginx/html;
+    index  index.html index.htm;
 
-        root /var/www/school;
-        index index.html;
+    location /redirect_me {
+        return 301 http://youtube.com/;
+    }
+}" > /etc/nginx/sites-available/default
 
-        location /redirect_me {
-            return 301 https://youtube.com;
-        }
-}
-" > default
-
-# Remove and replace existing configurations
-sudo rm -rf /etc/nginx/sites-available/default
-sudo rm -rf /etc/nginx/sites-enabled/default
-sudo mv default /etc/nginx/sites-available/
-sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
-
-# Restart nginx
-sudo service nginx restart
+service nginx restart
