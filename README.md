@@ -1,4 +1,4 @@
-# System Engineering and DevOps - Bash, Scripting, Web Stack/Web Stack Debugging, Networking & Security, CI/CD
+# System Engineering and DevOps - Bash, Scripting, Scripting, Web stack, Security, CI/CD, Web stack debugging
 
 This repository contains programs written for the system engineering and DevOps
 track at alx/Holberton School

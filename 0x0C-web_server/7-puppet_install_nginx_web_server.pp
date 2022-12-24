@@ -1,5 +1,6 @@
 # Install Nginx web server (w/ Puppet)
 # Similar to task 4-not_found_page_404
+# install nginx and reset the default configurations
 
 exec { 'server configuration':
   provider => shell,
