@@ -1,7 +1,14 @@
-# Creating a file at /tmp/school with puppet
-file {'~/default':
-mode    =>'0777',
-content =>  '"server {
+# Install nginx
+# Similar to 0-custom_http_response_header
+# install nginx and reset the default configurations
+
+exec { 'create file':
+provider => shell,
+command => 'touch default'}
+
+exec { 'write into default':
+provider => shell,
+command => 'printf %s "server {
         listen 80;
         listen [::]:80;
         add_header X-Served-By $HOSTNAME;
@@ -16,7 +23,5 @@ content =>  '"server {
         error_page 404 /404.html;
         location = /404.html {
             root /var/www/school/errors/;
-        }
 }
-"',
-}
+" > default'}
