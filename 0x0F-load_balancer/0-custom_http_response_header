@@ -12,7 +12,6 @@ sudo apt -y install nginx
 rm -rf school
 mkdir school
 mkdir school/errors
-touch 404.html
 echo "Ceci n'est pas une page" > school/errors/404.html
 
 touch school/index.html
