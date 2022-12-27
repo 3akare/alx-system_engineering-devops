@@ -1,8 +1,11 @@
 #!/usr/bin/env bash
 # Install and configure HAproxy Load Balancer (High Avaialbility Proxy)
 
+# Update apt packages and Install haproxy
 sudo apt -y update
 sudo apt install -y haproxy
+
+# Change file mode of /etc/haproxy/haproxy.cfg to 777 to alter its contents
 
 sudo chmod 777 /etc/haproxy/haproxy.cfg
 printf %s "
@@ -19,4 +22,5 @@ listen hbnb
 " >> /etc/haproxy/haproxy.cfg
 sudo chmod 644 /etc/haproxy/haproxy.cfg
 
+# Restart haproxy
 sudo service haproxy start
