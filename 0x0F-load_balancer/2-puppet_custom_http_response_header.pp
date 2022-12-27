@@ -33,7 +33,7 @@ command => 'sudo apt -y update; sudo apt -y install nginx; rm -rf school; mkdir 
 
 exec { 'server configuration':
 provider => shell,
-command => 'touch school/index/html; echo "Hello World!" > school/index.html; sudo rm -rf /var/www/school; sudo mv school /var/www/'
+command => 'touch school/index/html; echo "Hello World!" > school/index.html; sudo rm -rf /var/www/school; sudo mv school /var/www/;'
 }
 
 exec { 'server configuration':
