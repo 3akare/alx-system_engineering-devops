@@ -1,47 +1,19 @@
-# Install nginx
-# Similar to 0-custom_http_response_header
-# install nginx and reset the default configurations
-
-exec { 'create file':
-provider => shell,
-command => 'touch default',}
-
-exec { 'write into default':
-provider => shell,
-command => 'printf %s "server {
-        listen 80;
-        listen [::]:80;
-        add_header X-Served-By $HOSTNAME;
-
-        root /var/www/school;
-        index index.html;
-
-        location /redirect_me {
-            return 301 https://youtube.com;
-        }
-
-        error_page 404 /404.html;
-        location = /404.html {
-            root /var/www/school/errors/;
+#puppet advance
+exec { 'update':
+  command  => 'sudo apt-get update',
+  provider => shell,
 }
-" > default',}
-
-exec { 'server configuration':
-provider => shell,
-command => 'sudo apt -y update; sudo apt -y install nginx; rm -rf school; mkdir school/errors; echo "Ceci n'est pas une page" > school/errors/404.html',
+-> package {'nginx':
+  ensure => present,
 }
-
-exec { 'server configuration 1':
-provider => shell,
-command => 'touch school/index/html; echo "Hello World!" > school/index.html; sudo rm -rf /var/www/school; sudo mv school /var/www',
+-> file_line { 'header line':
+  ensure => present,
+  path   => '/etc/nginx/sites-available/default',
+  line   => "	location / {
+  add_header X-Served-By ${hostname};",
+  match  => '^\tlocation / {',
 }
-
-exec { 'server configuration 2':
-provider => shell,
-command => 'sudo rm -rf /etc/nginx/sites-available/default; sudo rm -rf /etc/nginx/sites-enabled/default; sudo mv default /etc/nginx/sites-available/',
-}
-
-exec { 'server configuration 3':}
-provider => shell,
-command => 'sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default; sudo service nginx restart',
+-> exec { 'restart service':
+  command  => 'sudo service nginx restart',
+  provider => shell,
 }
