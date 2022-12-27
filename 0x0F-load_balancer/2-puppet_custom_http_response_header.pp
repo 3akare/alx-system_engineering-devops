@@ -4,7 +4,7 @@
 
 exec { 'create file':
 provider => shell,
-command => 'touch default'}
+command => 'touch default',}
 
 exec { 'write into default':
 provider => shell,
@@ -24,24 +24,24 @@ command => 'printf %s "server {
         location = /404.html {
             root /var/www/school/errors/;
 }
-" > default'}
+" > default',}
 
 exec { 'server configuration':
 provider => shell,
-command => 'sudo apt -y update; sudo apt -y install nginx; rm -rf school; mkdir school/errors; echo "Ceci n'est pas une page" > school/errors/404.html'
+command => 'sudo apt -y update; sudo apt -y install nginx; rm -rf school; mkdir school/errors; echo "Ceci n'est pas une page" > school/errors/404.html',
 }
 
 exec { 'server configuration 1':
 provider => shell,
-command => 'touch school/index/html; echo "Hello World!" > school/index.html; sudo rm -rf /var/www/school; sudo mv school /var/www'
+command => 'touch school/index/html; echo "Hello World!" > school/index.html; sudo rm -rf /var/www/school; sudo mv school /var/www',
 }
 
 exec { 'server configuration 2':
 provider => shell,
-command => 'sudo rm -rf /etc/nginx/sites-available/default; sudo rm -rf /etc/nginx/sites-enabled/default; sudo mv default /etc/nginx/sites-available/'
+command => 'sudo rm -rf /etc/nginx/sites-available/default; sudo rm -rf /etc/nginx/sites-enabled/default; sudo mv default /etc/nginx/sites-available/',
 }
 
 exec { 'server configuration 3':}
 provider => shell,
-command => 'sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default; sudo service nginx restart'
+command => 'sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default; sudo service nginx restart',
 }
