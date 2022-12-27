@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# Install and configure HAproxy Load Balancer (High Avaialbility Proxy)
+
+sudo apt -y update
+sudo apt install -y haproxy
+
+sudo chmod 777 /etc/haproxy/haproxy.cfg
+printf %s "
+listen hbnb
+        bind 0.0.0.0:80
+        mode http
+        stats enable
+        stats uri /haproxy?stats
+        balance roundrobin
+        option httpclose
+        option forwardfor
+        server 60374-web-01 52.23.179.2:80 check
+        server 60374-web-02 54.82.199.146:80 check
+" >> /etc/haproxy/haproxy.cfg
+sudo chmod 644 /etc/haproxy/haproxy.cfg
+
+sudo service haproxy start
