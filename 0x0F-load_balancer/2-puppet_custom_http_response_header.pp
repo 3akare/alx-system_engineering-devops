@@ -1,4 +1,7 @@
 #puppet advance
+#install configure nginx
+# similar to task 0-custo,_http_response_header
+
 exec { 'update':
   command  => 'sudo apt-get update',
   provider => shell,
