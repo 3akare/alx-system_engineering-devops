@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Displays Imformation about subdomains
+
+# shellcheck disable=SC2086
+
+# Usage:
+# (1) ./0-world_wide_web 3akare.tech
+# (2) ./0-world_wide_web 3akare.tech web-02
+
+
+if [ "$#" = 1 ]
+then
+    subdomains=("www" "lb-01" "web-01" "web-02")
+    for sub_domain in "${subdomains[@]}"
+    do
+        record_type=$(dig "$sub_domain.$1" | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{print $4}')
+        ip_address=$(dig "$sub_domain.$1" | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{print $5}')
+        echo "The subdomain $sub_domain is a $record_type record and points to $ip_address"
+    done
+elif [ "$#" = 2 ]
+then
+    record_type=$(dig "$2.$1" | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{print $4}')
+    ip_address=$(dig "$2.$1" | grep -A1 'ANSWER SECTION:' | tail -1 | awk '{print $5}')
+    echo "The subdomain $sub_domain is a $record_type record and points to $ip_address"
+fi
