@@ -18,4 +18,5 @@ track at alx/Holberton School
 - [0x0C-Web Server](./0x0C-web_server)
 - [0x0D-Web Debugging #0](./0x0D-web_stack_debugging_0)
 - [0x0E-Web Debugging #1](./0x0E-web_stack_debugging_1)
+- [0x0F-Load Balancing](./0x0F-load_balancer)
 - [Command Line for the win](./command_line_for_the_win)
