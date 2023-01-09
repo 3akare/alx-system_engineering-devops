@@ -14,7 +14,7 @@ track at alx/Holberton School
 - [0x08-Networking Basics 2](./0x08-networking_basics_2)
 - [0x09-Web Infrastructure](./0x09-web_infrastructure_design)
 - [0x10-HTTPS SSL](./0x10-https_ssl)
-- [0x11-what happens when you type google.com in your browser and press enter](./0x11-what_happens_when_your_type_google_com_in_your_browser_and_press_enter/)
+- [0x11-What happens when you type google.com in your browser and press enter](./0x11-what_happens_when_your_type_google_com_in_your_browser_and_press_enter/)
 - [0x12-Web Stack Debugging #2](./0x12-web_stack_debugging_2)
 - [0x13-Firewall](./0x13-firewall)
 - [0x0A-Configuration Management](./0x0A-configuration_management)
