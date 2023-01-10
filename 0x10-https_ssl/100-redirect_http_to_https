@@ -44,8 +44,8 @@ listen 3akare
 	option http-server-close
 	option httpclose
 	option forwardfor
-	server 60374-web-01 52.23.179.2:80 check
-	server 60374-web-02 54.82.199.146:80 check
+	server 60374-web-01 35.175.126.203:80 check
+	server 60374-web-02 100.26.178.217:80 check
 
 frontend www-http
 	bind *:80
@@ -62,8 +62,8 @@ frontend www-https
 
 backend www-backend
 	redirect scheme https if !{ ssl_fc }
-	server 60374-web-01 52.23.179.2:80 check
-	server 60374-wbe-02 54.82.199.146:80 check
+	server 60374-web-01 35.175.126.203:80 check
+	server 60374-wbe-02 100.26.178.217:80 check
 
 backend letsencrypt-backend
 	server letsencrypt 127.0.0.1:54321
