@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# Generates a MySQL dump and creates a compressed archive out of it.
+sudo mysqldump -uroot -p"$1" --all-databases > backup.sql
+new_date=$(date +"%d-%m-%y")
+tar -cvzf $new_date.tar.gz replica.sql
