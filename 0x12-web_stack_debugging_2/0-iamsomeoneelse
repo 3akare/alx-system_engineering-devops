@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Run software as another user
+# I have no idea what this really does but we thank God
+sudo -u "$1" whoami
