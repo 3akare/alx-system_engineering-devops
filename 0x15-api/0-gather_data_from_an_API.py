@@ -11,19 +11,19 @@ if __name__ == '__main__':
     done = 0
     title_list = []
 
+    with requests.get(URL.format('users', sys.argv[1])) as req:
+        res = req.json()
+
     with requests.get(URL.format('todos', '')) as req2:
         res2 = req2.json()
-        for res in res2:
-            if (res.get('userId') == int(sys.argv[1])):
+        for r in res2:
+            if (r.get('userId') == int(sys.argv[1])):
                 total += 1
-                if (res.get('completed') is True):
-                    title_list.append(res.get('title'))
+                if (r.get('completed') is True):
+                    title_list.append(r.get('title'))
                     done += 1
 
-    with requests.get(URL.format('users', sys.argv[1])) as req:
-        response = req.json()
-
     output = 'Employer {} is done with tasks({}/{}):'
-    print(output.format(response.get('name'), done, total))
+    print(output.format(res.get('name'), done, total))
     for i in title_list:
         print(f'\t {i}')
