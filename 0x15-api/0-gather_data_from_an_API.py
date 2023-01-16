@@ -1,12 +1,10 @@
 #!/usr/bin/python3
-'''Using a REST API, for a given employee ID, returns information
-about his/her TODO list progress.'''
+"""Returns to-do list information for a given employee ID."""
 import requests
 import sys
 
 if __name__ == '__main__':
     URL = 'https://jsonplaceholder.typicode.com/{}/{}'
-
     total = 0
     done = 0
     title_list = []
