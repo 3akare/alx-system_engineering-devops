@@ -5,7 +5,6 @@ import sys
 
 if __name__ == '__main__':
     URL = 'https://jsonplaceholder.typicode.com/{}/{}'
-    number = sys.argv[1]
 
     total = 0
     done = 0
