@@ -16,9 +16,11 @@ track at alx/Holberton School
 - [0x10-HTTPS SSL](./0x10-https_ssl)
 - [0x11-What happens when you type google.com in your browser and press enter](./0x11-what_happens_when_your_type_google_com_in_your_browser_and_press_enter/)
 - [0x12-Web Stack Debugging #2](./0x12-web_stack_debugging_2)
+- [0x17-Web Stack Debugging #3](./0x17-web_stack_debugging_3)
 - [0x13-Firewall](./0x13-firewall)
 - [0x14-mysql](./0x14-mysql)
 - [0x15-API](./0x15-api)
+- [0x18-WebStack Monitoring](./0x18-webstack_monitoring)
 - [0x0A-Configuration Management](./0x0A-configuration_management)
 - [0x0B-SSH](./0x0B-ssh)
 - [0x0C-Web Server](./0x0C-web_server)
@@ -26,4 +28,3 @@ track at alx/Holberton School
 - [0x0E-Web Stack Debugging #1](./0x0E-web_stack_debugging_1)
 - [0x0F-Load Balancing](./0x0F-load_balancer)
 - [Command Line for the win](./command_line_for_the_win)
-
