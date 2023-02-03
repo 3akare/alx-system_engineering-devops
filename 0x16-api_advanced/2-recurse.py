@@ -16,11 +16,10 @@ def top_ten(subreddit):
         }
         response = requests.get(url, headers=headers, allow_redirects=False)
         if (response.status_code == 404):
-            print('None')
             return 0
         request = response.json().get('data').get('children')
-        for i in range(10):
-            print(request[i].get('data').get('title'))
+        print(request)
     except Exception:
-        print('None')
         return(0)
+
+top_ten('ass')
