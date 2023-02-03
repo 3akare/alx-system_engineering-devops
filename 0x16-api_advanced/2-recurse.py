@@ -1,25 +1,29 @@
 #!/usr/bin/python3
-"""prints the titles of the first 10 hot posts listed for a given subreddit.
-
-"""
+"""Function to query a list of all hot posts on a given Reddit subreddit."""
 import requests
 
 
-def top_ten(subreddit):
-    '''Return the title of the first 10 hot posts
-    listed for a given subreddit'''
-    try:
-        url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-        headers = {
-            "User-Agent": "linux:0x16.api.advanced:v1.0.0\
-            (by /u/Large_Alternative_30)",
-        }
-        response = requests.get(url, headers=headers, allow_redirects=False)
-        if (response.status_code == 404):
-            return 0
-        request = response.json().get('data').get('children')
-        print(request)
-    except Exception:
-        return(0)
+def recurse(subreddit, hot_list=[], after="", count=0):
+    """Returns a list of titles of all hot posts on a given subreddit."""
+    url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
+    headers = {
+        "User-Agent": "linux:0x16.api.advanced:v1.0.0 (by /u/bdov_)"
+    }
+    params = {
+        "after": after,
+        "count": count,
+        "limit": 100
+    }
+    response = requests.get(url, headers=headers,
+                            allow_redirects=False)
+    if response.status_code == 404:
+        return None
 
-top_ten('ass')
+    results = response.json().get("data")
+    after = results.get("after")
+    count += results.get("dist")
+    for c in results.get("children"):
+        hot_list.append(c.get("data").get("title"))
+    if after is not None:
+        return recurse(subreddit, hot_list, after, count)
+    return hot_list
