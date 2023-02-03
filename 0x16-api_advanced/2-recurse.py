@@ -14,7 +14,7 @@ def recurse(subreddit, hot_list=[], after="", count=0):
         "count": count,
         "limit": 100
     }
-    response = requests.get(url, headers=headers,
+    response = requests.get(url, headers=headers, params=params,
                             allow_redirects=False)
     if response.status_code == 404:
         return None
@@ -24,6 +24,7 @@ def recurse(subreddit, hot_list=[], after="", count=0):
     count += results.get("dist")
     for c in results.get("children"):
         hot_list.append(c.get("data").get("title"))
+
     if after is not None:
         return recurse(subreddit, hot_list, after, count)
     return hot_list
