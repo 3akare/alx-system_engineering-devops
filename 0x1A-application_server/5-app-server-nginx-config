@@ -5,9 +5,6 @@ server {
 
         server_name 35.175.126.203;
 
-        #root /var/www/school;
-        #index index.html;
-
         location = /airbnb-onepage/ {
                 proxy_pass http://127.0.0.1:5000/airbnb-onepage/;
         }
