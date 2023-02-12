@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
-
 # Set the name of your Gunicorn service
+
 SERVICE_NAME=gunicorn
 
 # Get the PID of the Gunicorn service
