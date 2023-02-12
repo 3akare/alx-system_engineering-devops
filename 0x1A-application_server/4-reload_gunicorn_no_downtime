@@ -1,0 +1,24 @@
+#!/bin/bash
+
+# Set the name of your Gunicorn service
+SERVICE_NAME=gunicorn
+
+# Get the PID of the Gunicorn service
+PID=$(pidof $SERVICE_NAME)
+
+# Check if the Gunicorn service is running
+if [ -z "$PID" ]; then
+  echo "Error: Gunicorn service is not running"
+  exit 1
+fi
+
+# Send the reload signal to the Gunicorn process
+kill -HUP "$PID"
+
+# Check if the Gunicorn service has reloaded successfully
+if [ -z "$(pidof $SERVICE_NAME)" ]; then
+  echo "Error: Gunicorn service reload failed"
+  exit 1
+fi
+
+echo "Gunicorn service reloaded successfully"
