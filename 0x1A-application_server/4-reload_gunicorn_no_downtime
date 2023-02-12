@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Set the name of your Gunicorn service
 SERVICE_NAME=gunicorn
